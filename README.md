@@ -1,29 +1,13 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Консольное приложение на C# для поблочного сжатия и распаковки файлов с помощью System.IO.Compression.GzipStream.
+Для сжатия исходный файл делится на блоки одинакового размера, например, в 1 мегабайт. Каждый блок сжимается и записывается в выходной файл независимо от остальных блоков.
+Программа должна эффективно распараллеливать и синхронизировать обработку блоков в многопроцессорной среде и уметь обрабатывать файлы, размер которых превышает объем доступной оперативной памяти. 
+В случае исключительных ситуаций необходимо проинформировать пользователя понятным сообщением, позволяющим пользователю исправить возникшую проблему, в частности, если проблемы связаны с ограничениями операционной системы.
+При работе с потоками допускается использовать только базовые классы и объекты синхронизации (Thread, Manual/AutoResetEvent, Monitor, Semaphor, Mutex) и не допускается использовать async/await, ThreadPool, BackgroundWorker, TPL.
+Код приложение должен соответствовать принципам ООП и ООД (читаемость, разбиение на классы и т.д.). 
 
-### What is this repository for? ###
+Параметры приложение, имена исходного и результирующего файлов должны задаются в командной строке следующим образом:
+`GZipTestApp.exe compress/decompress [имя исходного файла] [имя результирующего файла]`
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+В случае успеха программа возвращает 0, при ошибке возвращает 1.
